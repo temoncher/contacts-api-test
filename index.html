@@ -22,7 +22,7 @@
 
             btn.addEventListener('click', async () => {
                 const supportedProperties = await navigator.contacts.getProperties();
-                const selectedContacts = await navigator.contacts.select();
+                const selectedContacts = await navigator.contacts.select(supportedProperties, { multiple: true });
                 const pre = document.createElement('pre');
                 pre.textContent = JSON.stringify(selectedContacts, null, 2);
                 document.body.append(pre);
